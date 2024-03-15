@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="custom">
+            <h4 class="header">Add Section</h4>
+            <div class="form-section">
+                <label for="heading">Section Header</label>
+                <input type="text" id="sectionHeader" class="form-control" [(ngModel)]="title">
+                <br>
+                <label for="content">Section Details</label>
+                <input type="text" id="sectionContent" class="form-control " [(ngModel)]="content">
+                <br>
+            </div>
+            <button (click)="addItem()" class="btn btn-primary">Add</button> 
+       
+    </div>
+    </div>
+    <div class="col-6">
+        <div class="accordion">
+            <div *ngFor="let item of items; let i = index" class="accordion-item">
+              <div class="accordion-header"  (click)="toggleAccordion(i)">
+                {{ item.title }}
+              </div>
+              <div class="accordion-content" [ngClass]="{ 'expanded': selectedIndex === i }">
+                {{ item.content }}
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+</div>
